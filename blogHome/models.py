@@ -19,3 +19,12 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
 
     REQUIRED_FIELDS = []
+
+class UserInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    address = models.CharField(null=True, default='NA')
+    city = models.CharField(null=True, default='NA')
+    country = models.CharField(null=True, default='NA')
+    postalCode = models.IntegerField(null=True)
+    aboutMe=models.CharField(null=True, default='NA')
+    userName =models.CharField(null=True, default='NA')
