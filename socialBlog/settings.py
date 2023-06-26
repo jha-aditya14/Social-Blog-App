@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'blogHome.apps.BloghomeConfig',
+    'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -96,7 +97,7 @@ WSGI_APPLICATION = 'socialBlog.wsgi.application'
 #         'PASSWORD': '9560',
 #         'HOST':'localhost'
 #     }
-# }
+#}
 
 #========== External DB ============
 
@@ -140,7 +141,7 @@ USE_TZ = True
 
 STATIC_URL = 'assets/'
 STATIC_ROOT = 'assets/'  #Comment it for Local
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]   #Un-Comment it for Local
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]   #Un-Comment it for Local
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
