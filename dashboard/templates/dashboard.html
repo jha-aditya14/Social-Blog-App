@@ -24,6 +24,26 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{% static '../assets/css/argon-dashboard.css' %}" rel="stylesheet" />
   <script src="{% static '../assets/js/plugins/chartjs.min.js' %}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    crossorigin="anonymous" />
+  <style>
+    <style>.like-btn .heart-icon {
+      color: #ed4956;
+    }
+
+    .comment-btn .comment-icon {
+      color: #262626;
+    }
+
+    .share-btn .share-icon {
+      color: #0095f6;
+    }
+
+    .like-btn .heart-icon {
+      color: #ed4956;
+    }
+  </style>
 
 </head>
 
@@ -235,7 +255,7 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Blogs By You</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Blogs</p>
                     <h5 class="font-weight-bolder">
                       {{blogCount}}
                     </h5>
@@ -323,6 +343,7 @@
           </div>
         </div>
       </div>
+
       <div class="row mt-4">
         {% for blog in getBlogs %}
         <div class="col-lg-12 mb-lg-0 mb-4" style="padding: 10px;">
@@ -330,7 +351,6 @@
             <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize">{{blog.blogName}}</h6>
               <p class="text-sm mb-0">
-                <!-- <i class="fa fa-arrow-up text-success"></i> -->
                 <span class="font-weight-bold">{{blog.Description}}</span>
               </p>
             </div>
@@ -339,10 +359,35 @@
               <img src="/media/{{blog.img}}" class="img-fluid" alt="{{blog.blogName}}">
               {% endif %}
             </div>
+            <div class="card-footer bg-transparent d-flex justify-content-between">
+              <div class="left-icons">
+                <button class="btn btn-link like-btn" data-liked="false">
+                  <i class="far fa-heart heart-icon"></i> <span class="like-count">0</span>
+                </button>
+                <button class="btn btn-link comment-btn">
+                  <i class="fas fa-comment comment-icon"></i> <span class="comment-count">0</span>
+                </button>
+              </div>
+              <div class="right-icons">
+                <button class="btn btn-link share-btn">
+                  <i class="fas fa-share share-icon"></i> <span class="share-count">0</span>
+                </button>
+              </div>
+            </div>
+            <div class="comments-section" style="display: none;">
+              <ul class="comments-list">
+                <!-- Add your comments here dynamically -->
+              </ul>
+              <div class="comment-input" style="display: inline-flex">
+                <input type="text" class="form-control" placeholder="Write a comment" style="width: 70%; margin-left: 45px;">
+                <button class="btn btn-primary post-comment-btn">Post</button>
+              </div>
+            </div>
           </div>
         </div>
         {% endfor %}
       </div>
+
       <footer class="footer fixed-bottom" style="background-color: black;">
         <div class="container">
           <div class="row">
@@ -513,6 +558,46 @@
       clearTimeout(timer);
     }
   </script>
+
+  <script>
+    const likeButtons = document.querySelectorAll(".like-btn");
+    likeButtons.forEach((button) => {
+      let count = 0;
+      button.addEventListener("click", () => {
+        const liked = button.getAttribute("data-liked");
+        const likeCount = button.querySelector(".like-count");
+        if (liked === "true") {
+          button.innerHTML = '<i class="far fa-heart heart-icon"></i> <span class="like-count">' + count + '</span>';
+          button.setAttribute("data-liked", "false");
+          count--;
+        } else {
+          button.innerHTML = '<i class="fas fa-heart heart-icon"></i> <span class="like-count">' + (count + 1) + '</span>';
+          button.setAttribute("data-liked", "true");
+          count++;
+        }
+      });
+    });
+  </script>
+
+
+  <script>
+    const commentButtons = document.querySelectorAll(".comment-btn");
+    commentButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const commentsSection = button.parentNode.parentNode.parentNode.querySelector(".comments-section");
+        const commentInput = commentsSection.querySelector(".comment-input");
+
+        if (commentsSection.style.display === "none") {
+          commentsSection.style.display = "block";
+          commentInput.style.display = "block";
+        } else {
+          commentsSection.style.display = "none";
+          commentInput.style.display = "none";
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>
