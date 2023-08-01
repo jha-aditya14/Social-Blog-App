@@ -15,7 +15,7 @@ Social Blog App is a web application built with Django and PostgreSQL that allow
 8. Responsive Design: The app is designed to be responsive and accessible across various devices.
 Getting Started
 
-** To get started with the Social Blog App, follow the instructions below:
+- To get started with the Social Blog App, follow the instructions below:
 
 ## Clone the Repository:
 
@@ -46,14 +46,11 @@ DATABASES = {
 
 ## Run Migrations:
 
-Apply the database migrations to create the necessary tables:
+Apply the database migrations to create the necessary tables: python manage.py migrate
 
-python manage.py migrate
-Start the Development Server:
+- Start the Development Server:
 
-Run the following command to start the development server:
-
-python manage.py runserver
+- Run the following command to start the development server: python manage.py runserver
 
 ## Access the App:
 
