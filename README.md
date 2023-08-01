@@ -57,10 +57,10 @@ Apply the database migrations to create the necessary tables: python manage.py m
 Open your web browser and visit http://localhost:8000 to access the Social Blog App.
 
 ## Technologies Used
-Django - Python Web Framework
-PostgreSQL - Relational Database Management System
-HTML, CSS, JavaScript - Front-end
-Bootstrap - Front-end Framework
+- Django - Python Web Framework
+- PostgreSQL - Relational Database Management System
+- HTML, CSS, JavaScript - Front-end
+- Bootstrap - Front-end Framework
 
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions for improvement, please feel free to create a pull request or open an issue in the repository.
