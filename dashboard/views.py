@@ -74,7 +74,7 @@ def dashBoard(request, user_id):
         "count": user_count,
         "countIncreaseYes": increaseUsrFromYest,
         "joined": user_count_joined,
-        "countIncreaseFromQuater": increaseFromQuater,
+        "countIncreaseFromQuater": round(increaseFromQuater, 2),
         "UserLoginToday": users_logged_in_today,
         "blogCount": blog_count,
         "BlogPercentage": diff_count_blogs,
