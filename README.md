@@ -19,7 +19,7 @@ Getting Started
 
 ## Clone the Repository:
 
-1. git clone https://github.com/your-username/social-blog-app.git
+1. git clone https://github.com/jha-aditya14/social-blog-app.git
 2. cd social-blog-app
 3. Install Dependencies: Make sure you have Python and pip installed. Then, create a virtual environment and install the required dependencies:
 
